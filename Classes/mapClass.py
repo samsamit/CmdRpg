@@ -11,8 +11,8 @@ class Map:
     def giveCharacters(self, characters):
         self.characters = characters
 
-    def surface(self, windowSize):
-        self.container = pygame.Surface((windowSize["w"], windowSize["h"]))
+    def surface(self, w, h):
+        self.container = pygame.Surface((w, h))
         self.container.fill(pygame.Color(self.color))
         self.drawCharacters()
         return self.container
