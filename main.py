@@ -19,18 +19,16 @@ playerHandler = PlayerHandler()
 testPlayer = Player()
 playerHandler.addPlayer(testPlayer)
 
-
 while gameOn:
+    pygame.display.update()  # update display
     clock.tick(60)  # Set loop run cycle
-
-    playerHandler.testPlayerMovement()
-
-    gameMap.update(playerHandler.getSpriteGroup())  # Draw players to game map
+    
     window.drawMap(gameMap.surface)  # Draw gameMap to display
     window.drawConsole(console.surface)  # Draw console to display
-
-    # Handle player sprite resize
     playerHandler.resizePlayers(gameMap.mapArea.get_height())
+    gameMap.update(playerHandler.getSpriteGroup())  # Draw players to game map
+    # Handle player sprite resize
+    
     for event in pygame.event.get():
         # Handle console and game map resize
         window.resize(event, console.resize, gameMap.resize)
@@ -38,5 +36,3 @@ while gameOn:
         console.keyPressEvent(event, commander.handleCommand)
         if event.type == pygame.QUIT:
             gameOn = False
-
-    pygame.display.update()  # update display

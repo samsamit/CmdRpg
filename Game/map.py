@@ -24,9 +24,9 @@ class Map(GameData):
                 int(self.window_size["h"] * (1.0 - self.SCREEN_SPLIT)),
             )
         )
+        playerSprites.update()
         self.surface.fill(pygame.Color("white"))
         self.mapArea, mapAreaLocation = self.resizeGameArea(self.surface.get_size())
-        playerSprites.update()
         playerSprites.draw(self.mapArea)
         self.surface.blit(self.mapArea, mapAreaLocation)
 

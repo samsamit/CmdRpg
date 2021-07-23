@@ -17,11 +17,4 @@ class PlayerHandler:
 
     def resizePlayers(self, mapSize):
         for player in self.players:
-            player.image = pygame.transform.scale(
-                player.orgImage,
-                (int(mapSize * player.data.size), int(mapSize * player.data.size)),
-            )
-
-    def testPlayerMovement(self):
-        for player in self.players:
-            player.movepos[0] += 1
+            player.mapSize = mapSize
