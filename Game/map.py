@@ -1,4 +1,13 @@
-import pygame
+import pygame as pg
+
+
+class Border(pg.sprite.Sprite):
+    def __init__(self, game, cord, size) -> None:
+        self.groups = game.borders
+        pg.sprite.Sprite.__init__(self, self.groups)
+        self.rect = pg.Rect(cord, size)
+        self.x = cord[0]
+        self.y = cord[1]
 
 
 class Map:
@@ -32,6 +41,6 @@ class Map:
             x = 0
             y = (h - w) / 2
             areaSize = w
-        newMapArea = pygame.Surface((areaSize, areaSize))
-        newMapArea.fill(pygame.Color("white"))
+        newMapArea = pg.Surface((areaSize, areaSize))
+        newMapArea.fill(pg.Color("white"))
         return newMapArea, (x, y)
